@@ -909,7 +909,7 @@
             </div>
         </div>
     </div>
-
+{{--  --}}
    <!-- Bootstrap core JavaScript -->
         <script src="{{ asset('sbadmin/vendor/jquery/jquery.min.js') }}"></script>
         <script src="{{ asset('sbadmin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
