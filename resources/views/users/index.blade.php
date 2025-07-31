@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Blank</title>
+    <title>SB Admin 2</title>
 
     <!-- Custom fonts for this template-->
 <link href="{{ asset('sbadmin/css/sb-admin-2.min.css') }}" rel="stylesheet">
