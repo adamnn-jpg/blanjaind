@@ -17,9 +17,12 @@ return new class extends Migration
             $table->string('nomor_resi');
             $table->string('status');
             $table->text('alamat_pengiriman');
-            // BELUM SELESAI
-
+            $table->integer('biaya');
+            $table->longText('catatan')->nullable();
+            $table->timestamp('tanggal_pengiriman')->nullable();
+            $table->timestamp('tanggal_tiba')->nullable();
             $table->foreignId('pesanan_id')->references('id')->on('pesanans')->onDelete('cascade');
+
 
             $table->timestamps();
         });
