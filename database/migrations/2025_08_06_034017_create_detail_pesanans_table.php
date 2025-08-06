@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('detail_pesanans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->integer('jumlah_produk');
             $table->float('harga_satuan');
             $table->float('subtotal');

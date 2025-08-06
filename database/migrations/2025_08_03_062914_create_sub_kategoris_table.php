@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
+
         Schema::create('sub_kategoris', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->foreignId('kategori_id')->references('id')->on('kategoris')->onDelete('cascade');
+            $table->foreignId('kategori_id')->constrained()->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

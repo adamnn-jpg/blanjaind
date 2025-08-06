@@ -11,19 +11,29 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('wishlists', function (Blueprint $table) {
-            $table->id();
+        Schema::create('pesanans', function (Blueprint $table) {
+            $table->id(); // id (PK)
+
+            // foreignId sesuai dengan referensimu
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('product_id')->constrained()->onDelete('cascade');
+
+            $table->integer('kuantiti');
+            $table->decimal('total_harga', 10, 2);
+
+            $table->enum('status_pesanan', ['Menunggu Pembayaran', 'Diproses', 'Dikirim', 'Selesai']);
+
+            $table->dateTime('tanggal_pesanan');
+
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('wishlists');
+        Schema::dropIfExists('pesanans');
     }
 };

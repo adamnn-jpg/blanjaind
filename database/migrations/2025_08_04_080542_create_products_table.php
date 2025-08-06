@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->float('harga');
             $table->integer('stok');
-            $table->foreignId('id_kategori')->references('id')->on('kategoris')->onDelete('cascade');
-            $table->foreignId('id_subkategori')->references('id')->on('subkategoris')->onDelete('cascade');
+            $table->foreignId('kategori_id')->constrained('kategoris')->onDelete('cascade');
+            $table->foreignId('subkategori_id')->constrained('sub_kategoris')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();
         });
