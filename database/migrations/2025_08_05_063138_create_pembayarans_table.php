@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('metode');
             $table->enum('status', ['berhasil', 'gagal', 'pending']);
-            $table->foreignId('pesanan_id')->references('id')->on('pesanans')->onDelete('cascade');
+            $table->foreignId('pesanan_id')->constrained('pesanans')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

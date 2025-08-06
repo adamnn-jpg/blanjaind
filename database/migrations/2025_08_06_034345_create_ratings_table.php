@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->integer('rating')->comment('Rating nilai mulai dari 1 hingga 5');
             $table->longText('review')->comment('Review atau komentar dari pengguna');
-            $table->timestamps('tanggal_rating')->comment('Timestamp untuk mencatat kapan rating diberikan');
 
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->foreignId('product_id')->constrained()->cascadeOnDelete();
+            $table->timestamps();
         });
     }
 

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->longText('catatan')->nullable();
             $table->timestamp('tanggal_pengiriman')->nullable();
             $table->timestamp('tanggal_tiba')->nullable();
-            $table->foreignId('pesanan_id')->references('id')->on('pesanans')->onDelete('cascade');
+            $table->foreignId('pesanan_id')->constrained('pesanans')->onDelete('cascade');
 
 
             $table->timestamps();
