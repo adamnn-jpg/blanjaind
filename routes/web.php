@@ -11,6 +11,14 @@ Route::get('/users', function () {
     return view('users.index');
 });
 
+Route::get('users/charts', function () {
+    return view('users.charts');
+});
+
+Route::get('users/button', function () {
+    return view('users.button');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
