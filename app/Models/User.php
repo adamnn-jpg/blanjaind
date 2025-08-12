@@ -10,40 +10,40 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable, HasRoles;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+    protected $table = 'users';
+
     protected $fillable = [
         'name',
         'email',
         'password',
+        'alamat',
+        'telepon',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
     /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
+     * Get the reviews written by the user.
      */
-    protected function casts(): array
+    public function ulasan()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasMany(Ulasan::class, 'user_id');
+    }
+
+    /**
+     * Get the cart items for the user.
+     */
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class, 'user_id');
     }
 }
