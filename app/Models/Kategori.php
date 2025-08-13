@@ -6,5 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kategori extends Model
 {
-    //
+    protected $guarded = ['id'];
+
+    public function subKategoris()
+    {
+        return $this->hasMany(SubKategori::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
